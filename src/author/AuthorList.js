@@ -32,6 +32,7 @@ export default function AuthorList() {
     const addAuthor = (author) => {
         axios.post("author/add", author)
         .then(response => {
+            console.log(response.data)
             console.log("Author added successfully.")
             loadAuthorList();
         })
@@ -55,6 +56,7 @@ export default function AuthorList() {
                 </tbody>
             </table>
         </div>
+        <AuthorCreateForm addAuthor={addAuthor} />
     </div>
   )
 }
