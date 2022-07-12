@@ -4,7 +4,7 @@ export default function Author(props) {
   return (
     <>
     <td>{props.name}</td>
-    <td>{props.emailAddress}</td>
+    <td>{props.nationality}</td>
     </>
   )
 }

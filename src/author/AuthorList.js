@@ -49,7 +49,7 @@ export default function AuthorList() {
                 <tbody>
                     <tr>
                         <th>Name</th>
-                        <th>Email Address</th>
+                        <th>Nationality</th>
                     </tr>
                     {allAuthors}
                 </tbody>
