@@ -5,6 +5,8 @@ export default function Author(props) {
     <>
     <td>{props.name}</td>
     <td>{props.nationality}</td>
+    <td><button onClick={() => {props.editView(props._id)}}>Edit</button></td>
+    <td><button onClick={() => {props.deleteAuthor(props._id)}}>Delete</button></td>
     </>
   )
 }
