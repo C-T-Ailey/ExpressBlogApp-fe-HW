@@ -3,8 +3,6 @@ import axios from 'axios'
 import Author from './Author'
 import AuthorCreateForm from './AuthorCreateForm'
 import AuthorEditForm from './AuthorEditForm'
-import { BrowserRouter as Router, Routes, Route, Link, Navigate} from 'react-router-dom'
-import AuthorIndex from './AuthorIndex'
 
 export default function AuthorList() {
 
@@ -30,7 +28,11 @@ export default function AuthorList() {
     }
 
     const addAuthor = (author) => {
-        axios.post("author/add", author)
+        axios.post("author/add", author, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        })
         .then(response => {
             console.log(response.data)
             console.log("Author added successfully.")
@@ -54,7 +56,11 @@ export default function AuthorList() {
     }
 
     const editView = (id) => {
-        axios.get(`author/edit?id=${id}`)
+        axios.get(`author/edit?id=${id}`, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        })
         .then(response => {
             console.log(response.data.author)
             var author = response.data.author
@@ -68,7 +74,11 @@ export default function AuthorList() {
     }
 
     const editAuthor = (author) => {
-        axios.put("author/update", author)
+        axios.put("author/update", author, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        })
         .then(response => {
             console.log("Author information updated")
             loadAuthorList()
@@ -80,7 +90,11 @@ export default function AuthorList() {
     }
 
     const deleteAuthor = (id) => {
-        axios.delete(`author/delete?id=${id}`)
+        axios.delete(`author/delete?id=${id}`, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        })
         .then(response => {
             console.log("Author deleted successfully")
             loadAuthorList()
@@ -104,8 +118,6 @@ export default function AuthorList() {
             {loadBookList(author)}
         </tr>
     ))
-
-    // <AuthorIndex {authors} editView={editView} deleteAuthor={deleteAuthor} loadBookList={loadBookList} />
 
   return (
     <div>

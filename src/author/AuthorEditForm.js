@@ -54,7 +54,7 @@ export default function AuthorEditForm(props) {
 
             <div>
                 <input type="submit" value="Update Author" />
-                <button id="return" onClick={(e) => props.refreshAdd(e)}>New Author</button>
+                <button id='return' onClick={(e) => props.refreshAdd(e)}>Cancel Edit</button>
             </div>
         </form>
     </div>
